@@ -29,7 +29,6 @@ function PersonList() {
   return (
     <>
       <h1>Population {data.length} Peoples</h1>
-      <img src={girl} width={50} height={50} />
       <button onClick={() => setShow(!show)}>{show ? "Hide" : "Show"}</button>
       <ul>
         {show &&
@@ -41,6 +40,7 @@ function PersonList() {
                 height={50}
               />
               <h3>{item.name}</h3>
+              <button>Delete</button>
             </li>
           ))}
       </ul>
