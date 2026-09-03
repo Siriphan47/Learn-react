@@ -19,15 +19,19 @@ function App() {
     },
   ]);
 
+  const [show, setShow] = useState(true);
+
   return (
     <>
       <h1>Population {data.length} Peoples</h1>
+      <button onClick={() => setShow(!show)}>{show ? "Hide" : "Show"}</button>
       <ul>
-        {data.map((item) => (
-          <li key={item.id}>
-            {item.name} | {item.Gender}
-          </li>
-        ))}
+        {show &&
+          data.map((item) => (
+            <li key={item.id}>
+              {item.name} | {item.Gender}
+            </li>
+          ))}
       </ul>
     </>
   );
