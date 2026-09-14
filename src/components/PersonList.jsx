@@ -26,11 +26,12 @@ function PersonList() {
     },
   ]);
   const [show, setShow] = useState(true);
-
   return (
     <div className="container">
       <div className="header">
-        <h2>Population {data.length} Peoples</h2>
+        <h2 style={{ color: "red", fontSize: "30px" }}>
+          Population {data.length} Peoples
+        </h2>
         <button onClick={() => setShow(!show)}>{show ? "Hide" : "Show"}</button>
       </div>
       <ul>
