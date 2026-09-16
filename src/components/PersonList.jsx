@@ -30,14 +30,20 @@ function PersonList() {
     <div className="container">
       <div className="header">
         <h2 style={{ color: "red", fontSize: "30px" }}>
-          Population {data.length} Peoples
+          Population {data.length}
         </h2>
         <button onClick={() => setShow(!show)}>{show ? "Hide" : "Show"}</button>
       </div>
       <ul>
         {show &&
           data.map((item) => (
-            <li key={item.id}>
+            <li
+              key={item.id}
+              style={{
+                borderStyle: "solid",
+                borderColor: item.Gender === "Male" ? "green" : "pink",
+              }}
+            >
               <img
                 src={item.Gender === "Male" ? boy : girl}
                 width={50}
