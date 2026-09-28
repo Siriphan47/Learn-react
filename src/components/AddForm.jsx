@@ -3,10 +3,20 @@ import { useState } from "react";
 
 export default function AddForm() {
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("Male");
+
+  function saveData(e) {
+    e.preventDefault();
+    const person = {
+      name: name,
+      gender: gender,
+    };
+    console.log(person);
+  }
+
   return (
     <section className="container">
-      <form>
+      <form onSubmit={saveData}>
         <label>Name's population</label>
         <input
           type="text"
@@ -14,7 +24,9 @@ export default function AddForm() {
           onChange={(e) => setName(e.target.value)}
         />
         <select value={gender} onChange={(e) => setGender(e.target.value)}>
-          <option disabled>Select Gender</option>
+          <option disabled defaultValue>
+            Select Gender
+          </option>
           <option>Male</option>
           <option>Female</option>
         </select>
