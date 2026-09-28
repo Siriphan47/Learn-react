@@ -30,7 +30,11 @@ export default function AddForm() {
           <option>Male</option>
           <option>Female</option>
         </select>
-        <button type="submit" className="btn-save">
+        <button
+          type="submit"
+          className="btn-save"
+          disabled={name.trim() === ""}
+        >
           Save
         </button>
       </form>
