@@ -1,17 +1,23 @@
 import "./AddForm.css";
 import { useState } from "react";
 
-export default function AddForm() {
+export default function AddForm(props) {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("Male");
+
+  const { data, setData } = props;
 
   function saveData(e) {
     e.preventDefault();
     const person = {
+      id: Math.floor(Math.random() * 1000),
       name: name,
       gender: gender,
     };
     console.log(person);
+    setData([...data, person]);
+    setName("");
+    setGender("Male");
   }
 
   return (
@@ -24,9 +30,7 @@ export default function AddForm() {
           onChange={(e) => setName(e.target.value)}
         />
         <select value={gender} onChange={(e) => setGender(e.target.value)}>
-          <option disabled defaultValue>
-            Select Gender
-          </option>
+          <option disabled>Select Gender</option>
           <option>Male</option>
           <option>Female</option>
         </select>

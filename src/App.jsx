@@ -5,28 +5,7 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [data, setData] = useState([
-    {
-      id: 1,
-      name: "Bill",
-      Gender: "Male",
-    },
-    {
-      id: 2,
-      name: "Nam",
-      Gender: "Female",
-    },
-    {
-      id: 3,
-      name: "Alex",
-      Gender: "Female",
-    },
-    {
-      id: 4,
-      name: "Jame",
-      Gender: "Male",
-    },
-  ]);
+  const [data, setData] = useState([]);
   function deleteUser(id) {
     const result = data.filter((user) => user.id !== id);
     setData(result);
@@ -35,7 +14,7 @@ function App() {
     <div className="App">
       <Header title="My Appilcation" />
       <main>
-        <AddForm />
+        <AddForm data={data} setData={setData} />
         <PersonList data={data} deleteUser={deleteUser} />
       </main>
     </div>

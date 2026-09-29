@@ -7,10 +7,10 @@ export default function User({ item, deleteUser }) {
       <li
         style={{
           borderStyle: "solid",
-          borderColor: item.Gender === "Male" ? "green" : "pink",
+          borderColor: item.gender === "Male" ? "green" : "pink",
         }}
       >
-        <img src={item.Gender === "Male" ? boy : girl} width={50} height={50} />
+        <img src={item.gender === "Male" ? boy : girl} width={50} height={50} />
         <p>{item.name}</p>
         <div className="control">
           <button onClick={() => deleteUser(item.id)}>Delete</button>
