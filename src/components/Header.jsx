@@ -1,4 +1,6 @@
 import "./Header.css";
+import { MdSunny } from "react-icons/md";
+import { BsFillMoonStarsFill } from "react-icons/bs";
 const Header = ({ title, theme, setTheme }) => {
   function toggleTheme() {
     setTheme(theme === "light" ? "dark" : "light");
@@ -7,9 +9,13 @@ const Header = ({ title, theme, setTheme }) => {
   return (
     <nav>
       <h1>{title}</h1>
-      <button onClick={toggleTheme}>
-        {theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-      </button>
+      <span onClick={toggleTheme}>
+        {theme === "light" ? (
+          <MdSunny size={30} />
+        ) : (
+          <BsFillMoonStarsFill size={30} />
+        )}
+      </span>
     </nav>
   );
 };
