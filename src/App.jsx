@@ -11,11 +11,11 @@ function App() {
     setData(result);
   }
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("mode") || "light");
 
   useEffect(() => {
-    console.log("Render Component");
-  }, []);
+    localStorage.setItem("mode", theme);
+  }, [theme]);
 
   return (
     <div className={theme}>
